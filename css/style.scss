@@ -1,0 +1,217 @@
+//out: ../css/style.css,  compress: false
+
+//<МИКСИНЫ>===============================================================================================
+@mixin anim($time){-webkit-transition: all $time ease;-moz-transition: all $time ease;-ms-transition: all $time ease;-o-transition: all $time ease;transition: all $time ease;}
+@mixin rotate($deg){-moz-transform: rotate($deg);-ms-transform: rotate($deg);-webkit-transform: rotate($deg);-o-transform: rotate($deg);transform: rotate($deg);}
+@mixin scale($num){-moz-transform: scale($num);-ms-transform: scale($num);-webkit-transform: scale($num);-o-transform: scale($num);transform: scale($num);}
+@mixin skew($num){-webkit-transform: skewX($num);-moz-transform: skewX($num);-ms-transform: skewX($num);-o-transform: skewX($num);transform: skewX($num);}
+@mixin cnt($h){display: flex;flex-direction: column;height: $h;text-align: center;align-items: stretch;justify-content: center;}
+//</МИКСИНЫ>===============================================================================================
+
+//<ШРИФТЫ>===============================================================================================
+//<Подключаем шрифты>=======================================================================================
+@font-face{font-family: 'Raleway';font-weight: normal;font-style: normal;src: url('../fonts/Raleway-Regular.eot');src: local('☺'), url('../fonts/Raleway-Regular.woff') format('woff'), url('../fonts/Raleway-Regular.ttf') format('truetype'), url('../fonts/Raleway-Regular.svg') format('svg');}
+@font-face{font-family: 'Raleway';font-weight: 300;font-style: normal;src: url('../fonts/Raleway-Light.eot');src: local('☺'), url('../fonts/Raleway-Light.woff') format('woff'), url('../fonts/Raleway-Light.ttf') format('truetype'), url('../fonts/Raleway-Light.svg') format('svg');}
+@font-face{font-family: 'Raleway';font-weight: 500;font-style: normal;src: url('../fonts/Raleway-Medium.eot');src: local('☺'), url('../fonts/Raleway-Medium.woff') format('woff'), url('../fonts/Raleway-Medium.ttf') format('truetype'), url('../fonts/Raleway-Medium.svg') format('svg');}
+@font-face{font-family: 'Raleway';font-weight: 600;font-style: normal;src: url('../fonts/Raleway-SemiBold.eot');src: local('☺'), url('../fonts/Raleway-SemiBold.woff') format('woff'), url('../fonts/Raleway-SemiBold.ttf') format('truetype'), url('../fonts/Raleway-SemiBold.svg') format('svg');}
+@font-face{font-family: 'Raleway';font-weight: 700;font-style: normal;src: url('../fonts/Raleway-Bold.eot');src: local('☺'), url('../fonts/Raleway-Bold.woff') format('woff'), url('../fonts/Raleway-Bold.ttf') format('truetype'), url('../fonts/Raleway-Bold.svg') format('svg');}
+@font-face{font-family: 'Raleway';font-weight: 800;font-style:normal;src:url('../fonts/Raleway-ExtraBold.eot');src:local('☺'),url('../fonts/Raleway-ExtraBold.woff') format('woff'),url('../fonts/Raleway-ExtraBold.ttf') format('truetype'),url('../fonts/Raleway-ExtraBold.svg') format('svg');}
+@font-face{font-family: 'Raleway';font-weight: 900;font-style: normal;src: url('../fonts/Raleway-Black.eot');src: local('☺'), url('../fonts/Raleway-Black.woff') format('woff'), url('../fonts/Raleway-Black.ttf') format('truetype'), url('../fonts/Raleway-Black.svg') format('svg');}
+@import url(https://fonts.googleapis.com/css?family=Pacifico&subset=cyrillic);
+@import url(https://fonts.googleapis.com/css?family=Source+Sans+Pro&subset=cyrillic);
+//</Подключаем шрифты>=======================================================================================
+
+//<Иконочные шрифты>==========================================================================================
+@import url('//use.fontawesome.com/releases/v4.7.0/css/font-awesome-css.min.css');
+@font-face{font-family:'FontAwesome';src:url('//use.fontawesome.com/releases/v4.7.0/fonts/fontawesome-webfont.eot');src:url('//use.fontawesome.com/releases/v4.7.0/fonts/fontawesome-webfont.eot?#iefix') format('embedded-opentype'),url('//use.fontawesome.com/releases/v4.7.0/fonts/fontawesome-webfont.woff2') format('woff2'),url('//use.fontawesome.com/releases/v4.7.0/fonts/fontawesome-webfont.woff') format('woff'),url('//use.fontawesome.com/releases/v4.7.0/fonts/fontawesome-webfont.ttf') format('truetype'),url('//use.fontawesome.com/releases/v4.7.0/fonts/fontawesome-webfont.svg#fontawesomeregular') format('svg');font-weight:normal;font-style:normal;}
+//@import url(http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css);
+//</Иконочные шрифты>==========================================================================================
+
+//<Шрифт по умолчанию>==========================================================================================
+$fontfamily:"Raleway";
+//</Шрифт по умолчанию>==========================================================================================
+
+//</ШРИФТЫ>=======================================================================================================
+
+//<ОБНУЛЕНИЕ, ОБЩИЕ ПАРАМЕТРЫ>===============================================================================================
+$minwidth:320px;
+*{padding: 0px;margin: 0px;border: 0px;}
+*,*:before,*:after{-moz-box-sizing: border-box;-webkit-box-sizing: border-box;box-sizing: border-box;}
+:focus,:active{outline: none;}
+a:focus,a:active{outline: none;}
+aside,nav,footer,header,section{display: block;}
+html,body{height: 100%;margin: 0;padding: 0;min-width: $minwidth;position: relative;width: 100%;color: #000;}
+body{font-size: 100%;line-height: 1;font-size: 14px;font-family: $fontfamily;
+	&.lock{overflow: hidden;}
+}
+input,button,textarea{font-family: $fontfamily;}
+button{cursor: pointer;}
+button::-moz-focus-inner {padding:0;border:0;}
+ul li{list-style: none;}
+a, a:visited{text-decoration: none;}
+a:hover{text-decoration: none;}
+img{vertical-align: top;}
+.clr{clear: both;display: block;}
+.wrapper{width: 100%;min-height: 100%;overflow: hidden;}
+.row:after{display: block;content: '';clear: both;}
+.fa{font-family: inherit !important;
+	&:before{display:inline-block;font:normal normal normal 14px/1 FontAwesome;font-size:inherit;text-rendering:auto;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;}
+}
+.ss{font-family: "Source Sans Pro";}
+.bs{font-family: "Pacifico";}
+//</ОБНУЛЕНИЕ, ОБЩИЕ ПАРАМЕТРЫ>===============================================================================================
+
+//<ОСНОВНАЯ СЕТКА>===========================================================================================================
+.container{max-width: 1140px; margin: 0 auto;position: relative;}
+
+@media (max-width:1170px){
+	.container{max-width: 970px;}
+}
+@media (max-width:992px){
+	.container{max-width: 750px;}
+}
+@media (max-width:767px){
+	.container{max-width: none;padding:0 10px;}
+}
+//</ОСНОВНАЯ СЕТКА>===========================================================================================================
+
+//<ПОДКЛЮЧЕНИЕ ФАЙЛОВ СТИЛЕЙ СТРАНИЦ И ЕЛЕМЕНТОВ>====================================================================================================
+@import "header.scss";
+@import "footer.scss";
+@import "popup.scss";
+@import "index.scss";
+@import "catalog.scss";
+@import "checkout.scss";
+@import "cart.scss";
+@import "product.scss";
+@import "account.scss";
+@import "faq.scss";
+@import "news.scss";
+//</ПОДКЛЮЧЕНИЕ ФАЙЛОВ СТИЛЕЙ СТРАНИЦ И ЕЛЕМЕНТОВ>====================================================================================================
+
+//<ОСНОВНОЙ БЛОК>====================================================================================================
+.whiteblock{max-width: 1400px;margin: 0px auto;box-shadow: 0 0 57px 27px rgba(217, 214, 214, 0.51);padding: 0px 0px 80px 0px;}
+.whiteblock_pb{padding: 0px 0px 180px 0px;}
+.whiteblock_mb{margin: 0px auto -110px auto;padding: 0px 0px 130px 0px;}
+@media (max-width:767px){
+	.whiteblock_mb{margin: 0px auto;padding: 0px 0px 30px 0px;}
+}
+//====================================================================================================
+.breadcrumbs {
+	padding-top: 139px;
+}
+.breadcrumbs-body{color: #999;font-size: 14px;margin: 0px 0px 30px 0px;}
+.breadcrumbs__separator{display: inline-block;margin:0 5px;}
+.breadcrumbs__link {color: #999;display: inline-block;text-decoration: underline;margin: 0px 0px 8px 0px;}
+.breadcrumbs__item{display: inline-block;}
+//====================================================================================================
+.productslider {}
+.productslider-slider {margin:0 -15px;
+	.slick-arrow{width: 12px;height: 22px;position: absolute;top: 50%;margin: -11px 0px 0px 0px;z-index: 10;@include anim(0.3s);
+		&.slick-prev{background: url('../img/icons/arrow-productslider.png') 0 0 no-repeat;left: -15px;@include rotate(-180deg);}
+		&.slick-next{background: url('../img/icons/arrow-productslider.png') 0 0 no-repeat;right: -15px;}
+		&.slick-disabled{opacity: 0.2;}
+	}
+}
+.productslider-slide {padding:30px 15px;text-align: center;}
+
+@media (max-width:1200px){
+	.breadcrumbs{
+		padding-top: 0px;
+	}
+}
+@media (max-width:992px){
+	.productslider-slider {
+		.slick-arrow{
+			&.slick-prev{left: 15px;}
+			&.slick-next{right: 15px;}
+		}
+	}
+}
+//====================================================================================================
+.productitem {display: inline-block;width: 262px;background-color: #fff;box-shadow: 3px 5px 12px 6px rgba(217, 214, 214, 0.11);border: 1px solid #fff;@include anim(0.3s);text-align: left;position: relative;
+	&:hover{border: 1px solid #e8e8e8;}
+}
+.productitem-labels{pointer-events:none;position:absolute;left:0;top:30px;}
+.productitem-labels__item{display:inline-block;margin:0px 0px 5px 0px;color:#fff;font-size:18px;font-weight:600;text-align:center;line-height:40px;height:40px;width:145px;box-shadow:3px 4px 6px rgba(0,0,0,0.14);
+	&.hit{background-color:#292929;}
+	&.new{background-color:#f24841;}
+	&.sale{background-color:#f98e3c;}
+}
+.productitem__image {display: table;width: 100%;text-align: center;
+	span{display: table-cell;height: 240px;vertical-align: middle;
+		img{max-width: 100%;}
+	}
+}
+.productitem-body {padding: 15px 20px 25px 20px;}
+.productitem__title{color:#000000;font-weight:600;font-size:18px;line-height:24px;display:inline-block;height:48px;overflow:hidden;margin:0px 0px 10px 0px;@include anim(0.3s);
+	&:hover{color:#ef5350;}
+}
+.productitem__brand {font-weight: 600;
+	a{color: #000000;
+		&:hover{text-decoration: underline;}
+	}
+}
+.productitem-actions {padding: 15px 0px 0px 0px;
+	>.cell {vertical-align: middle;
+		&:last-child{text-align: right;white-space: nowrap;}
+	}
+}
+.productitem__price {color: #ef5350;font-size: 36px;font-weight: 700;
+	span{font-size: 24px;}
+	small{color: #7f7f7f;font-size: 14px;font-weight: 700;text-transform: uppercase;}
+}
+.productitem__addtocart{width:16px;height:25px;display:inline-block;background:url('../img/icons/cart.png') 0 0 no-repeat;background-size:100%;vertical-align:middle;}
+.productitem__quantity{display:inline-block;vertical-align:middle;border-radius:50%;line-height:25px;text-align:center;width:25px;height:25px;color:#ffffff;font-size:30px;margin:0px 0px 0px 5px;background-color:#ef5350;@include anim(0.3s);
+	&:hover{background-color: #000;}
+}
+//====================================================================================================
+.seoblock {background-color: #292929;padding: 60px 0;}
+.seoblock_mb{margin: 0px 0px -110px 0px;padding: 60px 0px 90px 0px;}
+.seoblock__title {margin: 0px 0px 40px 0px;}
+.seoblock-text {column-count: 2;color: #fff;}
+.seoblock-text__title{@extend .bs;font-size:42px;letter-spacing:2.1px;line-height:44px;margin:0px 0px 35px 0px;}
+.seoblock-text__value{font-size:16px;line-height:24px;
+	p{margin:0px 0px 15px 0px;}
+}
+@media (max-width:992px){
+	.seoblock-text__title{font-size: 30px;line-height: 33px;}
+}
+@media (max-width:767px){
+	.seoblock {}
+	.seoblock_mb{margin: 0px 0px 0px 0px;padding: 30px 0px 30px 0px;}
+	.seoblock-text__title{font-size: 25px;line-height: 28px;}
+	.seoblock-text__value{font-size:14px;line-height:18px;}
+	.seoblock-text {column-count: 1;}
+}
+//====================================================================================================
+.pagging {white-space: nowrap;}
+.pagging__arrow{display:inline-block;height:40px;width:40px;vertical-align:middle;
+	&.pagging__arrow_left{@include rotate(-180deg);background:url('../img/icons/arrow-page-black.png') center no-repeat;
+		&:hover{background:url('../img/icons/arrow-page-red.png') center no-repeat;}
+		&.disable{@include rotate(0deg);background:url('../img/icons/arrow-page.png') center no-repeat;}
+	}
+	&.pagging__arrow_right{background:url('../img/icons/arrow-page-black.png') center no-repeat;
+		&.disable{@include rotate(-180deg);background:url('../img/icons/arrow-page.png') center no-repeat;}
+		&:hover{background:url('../img/icons/arrow-page-red.png') center no-repeat;}
+	}
+}
+.pagging-list{display: inline-block;vertical-align: middle;
+	li{display: inline-block;margin:0 4px;}
+}
+.pagging__link{width:40px;color:#292929;font-size:16px;line-height:40px;letter-spacing:0.8px;text-align:center;height:40px;display:block;@include anim(0.3s);box-shadow:2px 3px 10px 1px rgba(120,121,126,0.18);background-color:#ffffff;@extend .ss;
+	&.dotts{box-shadow:none;}
+	&.active{background-color:#292929;color:#fff;}
+	&:hover{background-color:#292929;color:#fff;}
+}
+
+.hidden {
+	display: none;
+}
+//====================================================================================================
+//</ОСНОВНОЙ БЛОК>====================================================================================================
+
+//<ПОДКЛЮЧЕНИЕ ФАЙЛОВ UI СТИЛЕЙ, ФОРМ И ГОТОВЫХ КЛАССОВ>====================================================================================================
+@import "forms.scss";
+@import "ui.scss";
+//</ПОДКЛЮЧЕНИЕ ФАЙЛОВ UI СТИЛЕЙ, ФОРМ И ГОТОВЫХ КЛАССОВ>====================================================================================================

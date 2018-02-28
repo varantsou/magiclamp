@@ -1,0 +1,110 @@
+//<МИКСИНЫ>===============================================================================================
+@mixin anim($time){-webkit-transition: all $time ease;-moz-transition: all $time ease;-ms-transition: all $time ease;-o-transition: all $time ease;transition: all $time ease;}
+@mixin rotate($deg){-moz-transform: rotate($deg);-ms-transform: rotate($deg);-webkit-transform: rotate($deg);-o-transform: rotate($deg);transform: rotate($deg);}
+@mixin scale($num){-moz-transform: scale($num);-ms-transform: scale($num);-webkit-transform: scale($num);-o-transform: scale($num);transform: scale($num);}
+@mixin skew($num){-webkit-transform: skewX($num);-moz-transform: skewX($num);-ms-transform: skewX($num);-o-transform: skewX($num);transform: skewX($num);}
+@mixin cnt($h){display: flex;flex-direction: column;height: $h;text-align: center;align-items: stretch;justify-content: center;}
+//</МИКСИНЫ>===============================================================================================
+
+
+//<ОСНОВНОЙ БЛОК>====================================================================================================
+.titleline{
+	text-align: center;
+	color: #292929;
+	font-size: 24px;
+	font-weight: 800;
+	text-transform: uppercase;
+	position: relative;
+	padding: 0px 0px 10px 0px;
+	&:after{content:'';
+		position: absolute;
+		width: 80px;
+		height: 1px;
+		left: 50%;
+		bottom: 0;
+		margin-left: -40px;
+		background-color: #474747;
+	}
+}
+.titleline_white{color: #fff;
+	&:after{background-color: #fff;}
+}
+
+.title_2{
+	color: #000000;
+	font-size: 18px;
+	font-weight: 700;
+	text-transform: uppercase;
+}
+.text{
+	color: #000000;
+	font-size: 16px;
+	font-weight: 500;
+	line-height: 30px;
+	letter-spacing: 0.8px;
+}
+@media (max-width:767px){
+	.titleline{font-size: 20px;}
+}
+//</ОСНОВНОЙ БЛОК>====================================================================================================
+
+
+
+//<ГОТОВЫЕ КЛАССЫ>====================================================================================================
+.noselect{-webkit-touch-callout: none;-webkit-user-select: none;-khtml-user-select: none;-moz-user-select: none;-ms-user-select: none;user-select: none;}
+//====================================================================================================
+.ellipsis{display: block;overflow: hidden;width: 100%;white-space: nowrap;text-overflow: ellipsis;}
+//====================================================================================================
+.table{display: table;font-size: 0;width: 100%;
+	//table-layout: fixed;
+}
+.trow{display: table-row;}
+.cell{display: table-cell;
+	&.full{width: 100%;}
+}
+//====================================================================================================
+.ibg{background-position: center;background-size: cover;background-repeat: no-repeat;
+	img{display: none;}
+}
+//====================================================================================================
+.slick-slider{position: relative;
+	.slick-track,.slick-list {-webkit-transform: translate3d(0, 0, 0);-moz-transform: translate3d(0, 0, 0);-ms-transform: translate3d(0, 0, 0);-o-transform: translate3d(0, 0, 0);transform: translate3d(0, 0, 0);}
+	.slick-list{position: relative;overflow: hidden;width: 100%;}
+	.slick-track{position: relative;width: 100%;}
+	.slick-slide{overflow: hidden;float: left;position: relative;}
+}
+.slider-arrows{
+	.slick-arrow{width: 40px;height: 40px;
+		&.slick-prev{background: url('../img/icons/arrow-left.png') center no-repeat;border-right: 1px solid #c0bfc0;
+			&:hover{background: url('../img/icons/arrow-left_h.png') center no-repeat;}
+		}
+		&.slick-next{background: url('../img/icons/arrow-right.png') center no-repeat;
+			&:hover{background: url('../img/icons/arrow-right_h.png') center no-repeat;}
+		}
+	}
+}
+.slider-dotts{	position: absolute;height: 100%;right: 0;top: 0;width: 70px;
+	.slick-dots{
+		li{margin: 0px 0px 15px 0px;
+			button{font-size:0;width:20px;height:4px;background-color:#e8e8e8;@include anim(0.5s);
+				&:hover{
+					background-color: #000;
+				}
+			}
+			&.slick-active{
+				button{width:30px;background-color:#ef5350;}
+			}
+			&:last-child{margin:0px 0px 0px 0px;}
+		}
+	}
+}
+.slider-dotts-table{position: absolute;width: 100%;height: 100%;top: 0;left: 0;
+	>.cell{vertical-align: middle;height: 100%;}
+}
+
+.slider-dotts-counter{color:#ef5350;font-size:16px;font-weight:700;margin:0px 0px 15px 0px;}
+//=====================================================================================================================
+.tab__item{display: none;
+	&.active{display: block;}
+}
+//</ГОТОВЫЕ КЛАССЫ>====================================================================================================

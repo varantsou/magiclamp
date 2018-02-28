@@ -1,0 +1,104 @@
+@mixin anim($time){-webkit-transition: all $time ease;-moz-transition: all $time ease;-ms-transition: all $time ease;-o-transition: all $time ease;transition: all $time ease;}
+@mixin rotate($deg){-moz-transform: rotate($deg);-ms-transform: rotate($deg);-webkit-transform: rotate($deg);-o-transform: rotate($deg);transform: rotate($deg);}
+@mixin scale($num){-moz-transform: scale($num);-ms-transform: scale($num);-webkit-transform: scale($num);-o-transform: scale($num);transform: scale($num);}
+@mixin skew($num){-webkit-transform: skewX($num);-moz-transform: skewX($num);-ms-transform: skewX($num);-o-transform: skewX($num);transform: skewX($num);}
+@mixin cnt($h){display: flex;flex-direction: column;height: $h;text-align: center;align-items: stretch;justify-content: center;}
+//====================================================================================================
+/*
+font-family: 'Open Sans Condensed';
+@extend .fr;
+@include anim(0.3s);
+*/
+//====================================================================================================
+.faq{}
+.faq__title{margin: 0px 0px 60px 0px;}
+.faq-table{margin:0px 0px 30px 0px;
+	.trow{}
+	.cell{vertical-align:top;padding-bottom:30px;
+		&.faq_avatar{}
+		&.faq_question{width:50%;padding:0px 15px 30px 115px;}
+		&.faq_answer{width:50%;padding:0px 0px 30px 15px;}
+	}
+}
+.faq__avatar{width:80px;display:inline-block;position:relative;
+	&:after{content:'';background-color:#bababa;height:1px;width:300%;position:absolute;left:100%;top:50%;}
+	img{max-width:100%;}
+}
+.faq-question{background-color:#fff;position:relative;z-index:5;border:1px solid #eaeaea;padding:15px;}
+.faq-question__name{font-size:20px;font-weight:700;line-height:24px;}
+.faq-question__text{font-size:16px;font-weight:500;line-height:24px;}
+.faq-answer{background-color:#fbfbfb;padding:15px;position:relative;z-index:5;}
+.faq-answer__name{font-size:20px;font-weight:700;line-height:24px;}
+.faq-answer__text{font-size:16px;font-weight:500;line-height:24px;}
+
+@media (max-width:1170px){
+	.faq-table{
+		.cell{
+			&.faq_avatar{}
+			&.faq_question{padding:0px 15px 30px 70px;}
+		}
+	}
+}
+@media (max-width:992px){
+	.faq-table{
+		.cell{
+			&.faq_avatar{}
+			&.faq_question{padding:0px 15px 30px 30px;}
+		}
+	}
+}
+@media (max-width:767px){
+	.faq__title{margin: 0px 0px 30px 0px;}
+	.faq-table{
+		.cell{display: block;
+			&.faq_avatar{text-align: center;width: 100%;padding: 0px 0px 20px 0px;}
+			&.faq_question{padding:0px 0px 20px 0px;width: 100%;}
+			&.faq_answer{width:100%;padding:0px 0px 30px 0px;}
+		}
+	}
+	.faq__avatar{
+		&:after{
+			content:'';
+			display: none;
+		}
+	}
+}
+//====================================================================================================
+.faq-pagging{text-align: center;margin: 0px 0px 60px 0px;}
+//====================================================================================================
+.faq-form{padding:58px 0px 40px 0px;background-color:#292929;position:relative;
+	&:before{content:'';background:#fff url('../img/icons/pencil.png') 10px 0 no-repeat;height:58px;width:100%;position:absolute;left:65%;top:0;}
+}
+.faq-form__title{margin:0px 0px 60px 0px;}
+.faq-form-form{}
+.faq-form-table{
+	>.cell{
+		&:first-child{padding:0px 60px 0px 0px;}
+		&:last-child{padding:0px 0px 0px 60px;width:60%;}
+	}
+}
+.faq-form-line{margin:0px 0px 40px 0px;
+	&:last-child{margin:0px 0px 0px 0px;}
+}
+.faq-form-button{padding:40px 0px 0px 0px;text-align:right;}
+
+@media (max-width:767px){
+	.faq-form{padding:30px 0px 30px 0px;
+		&:before{display: none;}
+	}
+	.faq-form__title{margin:0px 0px 30px 0px;}
+	.faq-form-table{
+		>.cell{display: block;
+			&:first-child{padding:0px 0px 40px 0px;}
+			&:last-child{padding:0px 0px 0px 0px;width:100%;}
+		}
+	}
+}
+//====================================================================================================
+/*
+font-family: 'Open Sans Condensed';
+@extend .fr;
+@include anim(0.3s);
+*/
+//====================================================================================================
+
